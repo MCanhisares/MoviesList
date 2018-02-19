@@ -84,7 +84,7 @@ final class APIClient {
     
     func objects<T: JSONDecodable>(resource: Resource) -> Observable<[T]> {
         return data(resource: resource).map { data in
-            guard let objects: [T] = decodeList(data: data) else {
+            guard let objects: [T] = decode(data: data) else {
                 throw APIClientError.CouldNotDecodeJSON
             }
             return objects

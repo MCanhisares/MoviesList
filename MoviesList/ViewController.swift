@@ -30,15 +30,10 @@ class ViewController: UIViewController {
     private func setupBindings() {
         let client = APIClient.MovieAPIClient()
         
-        client.upcomingMoviesForPage(page: 1)
+        let obs = client.movieDetailWithId(id:701)
             .observeOn(MainScheduler.instance)
-            .catchError({ (error) -> Observable<[Movie]> in
-                print(error)
-                return Observable.just([])
-            })
             .subscribe({ (event) in
-                self.movies = event.element
-                print(self.movies)
+                print(event.element)
             })
             .disposed(by: disposeBag)
         

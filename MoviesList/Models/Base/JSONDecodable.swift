@@ -31,7 +31,7 @@ func decode<T:JSONDecodable>(data: Data) -> T? {
     return decode(dictionary: dictionary)
 }
 
-func decodeList<T:JSONDecodable>(data: Data) -> [T]? {
+func decode<T:JSONDecodable>(data: Data) -> [T]? {
     guard let JSONObject = try? JSONSerialization.jsonObject(with: data, options: []),
         let dictionaries = JSONObject as? [JSONDictionary] else {
             return nil

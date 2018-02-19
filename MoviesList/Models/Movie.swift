@@ -22,7 +22,7 @@ class BasicMovie: JSONDecodable {
     
     required init?(dictionary: JSONDictionary) {
         guard let id = dictionary["id"] as? Int ,
-            let title = dictionary["String"] as? String else {
+            let title = dictionary["title"] as? String else {
             return nil
         }
         self.id = id

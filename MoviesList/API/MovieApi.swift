@@ -53,7 +53,7 @@ extension APIClient {
     }
     
     func movieDetailWithId(id: Int) -> Observable<Movie> {
-        return objects(resource: MovieApi.Details(id: id)).map { $0[0] }
+        return object(resource: MovieApi.Details(id: id))
     }
     
     func upcomingMoviesForPage(page: Int) -> Observable<[Movie]> {
