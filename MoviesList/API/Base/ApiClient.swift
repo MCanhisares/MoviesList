@@ -39,10 +39,12 @@ final class APIClient {
     
     private func data(resource: Resource) -> Observable<Data> {
         let request = resource.requestWith(baseURL: baseURL)
+        print("Calling url \(String(describing: request.url!.absoluteString))")
         
         return Observable.create { observer in
             let task = self.session.dataTask(with: request, completionHandler: { data, response, error in
                 guard error == nil else {
+                    print("Error calling url \(String(describing: request.url!.absoluteString))")
                     observer.onError(APIClientError.Other(error!))
                     return
                 }
@@ -52,11 +54,13 @@ final class APIClient {
                 }
                 
                 if 200 ..< 300 ~= HTTPResponse.statusCode {
+                    print("Success calling url \(String(describing: request.url!.absoluteString))")
                     observer.onNext(data ?? Data())
                     observer.onCompleted()
                 }
                     
                 else {
+                    print("Error calling url \(String(describing: request.url!.absoluteString))")
                     observer.onError(APIClientError.BadStatus(status: HTTPResponse.statusCode))
                 }
             })
@@ -69,9 +73,18 @@ final class APIClient {
         }
     }
     
+    func object<T: JSONDecodable>(resource: Resource) -> Observable<T> {
+        return data(resource: resource).map { data in
+            guard let objects: T = decode(data: data) else {
+                throw APIClientError.CouldNotDecodeJSON
+            }
+            return objects
+        }
+    }
+    
     func objects<T: JSONDecodable>(resource: Resource) -> Observable<[T]> {
         return data(resource: resource).map { data in
-            guard let objects: [T] = decode(data: data) else {
+            guard let objects: [T] = decodeList(data: data) else {
                 throw APIClientError.CouldNotDecodeJSON
             }
             return objects

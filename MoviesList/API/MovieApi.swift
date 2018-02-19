@@ -59,4 +59,8 @@ extension APIClient {
     func upcomingMoviesForPage(page: Int) -> Observable<[Movie]> {
         return objects(resource: MovieApi.Upcoming(page: page))
     }
+    
+    func upcomingMoviesForPage(page: Int) -> Observable<Movie> {
+        return object(resource: MovieApi.Upcoming(page: page))
+    }
 }

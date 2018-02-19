@@ -14,9 +14,7 @@
 		E84FEB4E203904CC00B14B5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E84FEB4C203904CC00B14B5C /* LaunchScreen.storyboard */; };
 		E84FEB59203904CC00B14B5C /* MoviesListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84FEB58203904CC00B14B5C /* MoviesListTests.swift */; };
 		E84FEB692039059400B14B5C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84FEB642039059400B14B5C /* Kingfisher.framework */; };
-		E84FEB6A2039059400B14B5C /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84FEB652039059400B14B5C /* RxBlocking.framework */; };
 		E84FEB6B2039059400B14B5C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84FEB662039059400B14B5C /* RxSwift.framework */; };
-		E84FEB6C2039059400B14B5C /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84FEB672039059400B14B5C /* RxTest.framework */; };
 		E84FEB6D2039059400B14B5C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84FEB682039059400B14B5C /* RxCocoa.framework */; };
 		E84FEB712039062200B14B5C /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84FEB702039062200B14B5C /* ApiClient.swift */; };
 		E84FEB732039064100B14B5C /* ApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84FEB722039064100B14B5C /* ApiResource.swift */; };
@@ -64,9 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E84FEB692039059400B14B5C /* Kingfisher.framework in Frameworks */,
-				E84FEB6A2039059400B14B5C /* RxBlocking.framework in Frameworks */,
 				E84FEB6B2039059400B14B5C /* RxSwift.framework in Frameworks */,
-				E84FEB6C2039059400B14B5C /* RxTest.framework in Frameworks */,
 				E84FEB6D2039059400B14B5C /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,10 +274,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
 			);
 			outputPaths = (
 			);
@@ -495,6 +489,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X875BG56Z8;
 				INFOPLIST_FILE = MoviesListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Azell.MoviesListTests;
@@ -511,6 +506,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X875BG56Z8;
 				INFOPLIST_FILE = MoviesListTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Azell.MoviesListTests;
